@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>sorting &mdash; Mon_projet 0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Mon_projet 0 documentation" href="../index.html" />
+    <link rel="up" title="Module code" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Mon_projet 0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for sorting</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">:mod:`sorting` module : sorting functions module for quicksort assignment</span>
+
+<span class="sd">:author: `FIL - IEEA - Univ. Lille1.fr &lt;http://portail.fil.univ-lille1.fr&gt;`_</span>
+
+<span class="sd">:date: 2016, january</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">copy</span>
+
+<div class="viewcode-block" id="merge"><a class="viewcode-back" href="../sorting.html#sorting.merge">[docs]</a><span class="k">def</span> <span class="nf">merge</span> <span class="p">(</span><span class="n">t1</span><span class="p">,</span><span class="n">t2</span><span class="p">,</span> <span class="nb">cmp</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Given two sorted list, creates a fresh sorted list.</span>
+<span class="sd">    </span>
+<span class="sd">    :param t1: A list of objects</span>
+<span class="sd">    :type t1: list</span>
+<span class="sd">    :param t2: A list of objects</span>
+<span class="sd">    :type t1: list</span>
+<span class="sd">    :param cmp: A comparison function, returning 0 if a == b, -1 is a &lt; b, 1 if a &gt; b</span>
+<span class="sd">    :type cmp: function</span>
+<span class="sd">    :return: A fresh list, sorted.</span>
+<span class="sd">    :rtype: list</span>
+<span class="sd">    </span>
+<span class="sd">    .. note::</span>
+<span class="sd">    </span>
+<span class="sd">       time complexity of merge is :math:`O(n_1+n_2)` with</span>
+<span class="sd">       :math:`n_1` and :math:`n_2` resp. the length of *t1* and *t2*</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">n1</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>
+    <span class="n">n2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t2</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n1</span><span class="o">+</span><span class="n">n2</span><span class="p">)]</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">j</span> <span class="o">=</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n1</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n2</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">cmp</span><span class="p">(</span><span class="n">t1</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">t2</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">t</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">t1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">t</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">t2</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+            <span class="n">j</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n1</span><span class="p">:</span>
+        <span class="n">t</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">t1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n2</span><span class="p">:</span>
+        <span class="n">t</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">t2</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">t</span></div>
+
+<div class="viewcode-block" id="merge_sort"><a class="viewcode-back" href="../sorting.html#sorting.merge_sort">[docs]</a><span class="k">def</span> <span class="nf">merge_sort</span> <span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="nb">cmp</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A sorting function implementing the merge sort algorithm</span>
+<span class="sd">    </span>
+<span class="sd">    :param t: A list of integers</span>
+<span class="sd">    :type t: list</span>
+<span class="sd">    :param cmp: A comparison function, returning 0 if a == b, -1 is a &lt; b, 1 if a &gt; b</span>
+<span class="sd">    :type cmp: function</span>
+<span class="sd">    :return: A fresh list, sorted.</span>
+<span class="sd">    :rtype: list</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="c"># cas de base</span>
+        <span class="k">return</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c"># cas general</span>
+        <span class="n">t1</span> <span class="o">=</span> <span class="n">merge_sort</span><span class="p">((</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">:((</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)]),</span><span class="nb">cmp</span><span class="p">)</span>
+        <span class="n">t2</span> <span class="o">=</span> <span class="n">merge_sort</span><span class="p">((</span><span class="n">t</span><span class="p">[((</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span><span class="n">n</span><span class="p">]),</span><span class="nb">cmp</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">merge</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span><span class="n">t2</span><span class="p">,</span><span class="nb">cmp</span><span class="p">)</span></div>
+    
+
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo_FIL.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Mon_projet 0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Simon Le Pallac &lt;AUTHOR&gt; Ryan Lefebvre, FIL - IEEA - Univ-lille1.
+      Last updated on 21/01/2016.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.
+    </div>
+  </body>
+</html>

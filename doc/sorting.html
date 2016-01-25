@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>sorting &mdash; Mon_projet 0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Mon_projet 0 documentation" href="index.html" />
+    <link rel="next" title="test" href="test.html" />
+    <link rel="prev" title="experience" href="experience.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="test.html" title="test"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="experience.html" title="experience"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Mon_projet 0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-sorting">
+<span id="sorting"></span><h1>sorting<a class="headerlink" href="#module-sorting" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference internal" href="#module-sorting" title="sorting"><code class="xref py py-mod docutils literal"><span class="pre">sorting</span></code></a> module : sorting functions module for quicksort assignment</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">author:</th><td class="field-body"><a class="reference external" href="http://portail.fil.univ-lille1.fr">FIL - IEEA - Univ. Lille1.fr</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">date:</th><td class="field-body">2016, january</td>
+</tr>
+</tbody>
+</table>
+<dl class="function">
+<dt id="sorting.merge">
+<code class="descclassname">sorting.</code><code class="descname">merge</code><span class="sig-paren">(</span><em>t1</em>, <em>t2</em>, <em>cmp</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sorting.html#merge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sorting.merge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given two sorted list, creates a fresh sorted list.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>t1</strong> (<em>list</em>) &#8211; A list of objects</li>
+<li><strong>t2</strong> &#8211; A list of objects</li>
+<li><strong>cmp</strong> (<em>function</em>) &#8211; A comparison function, returning 0 if a == b, -1 is a &lt; b, 1 if a &gt; b</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A fresh list, sorted.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">time complexity of merge is <span class="math">\(O(n_1+n_2)\)</span> with
+<span class="math">\(n_1\)</span> and <span class="math">\(n_2\)</span> resp. the length of <em>t1</em> and <em>t2</em></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="sorting.merge_sort">
+<code class="descclassname">sorting.</code><code class="descname">merge_sort</code><span class="sig-paren">(</span><em>t</em>, <em>cmp</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sorting.html#merge_sort"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sorting.merge_sort" title="Permalink to this definition">¶</a></dt>
+<dd><p>A sorting function implementing the merge sort algorithm</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>t</strong> (<em>list</em>) &#8211; A list of integers</li>
+<li><strong>cmp</strong> (<em>function</em>) &#8211; A comparison function, returning 0 if a == b, -1 is a &lt; b, 1 if a &gt; b</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A fresh list, sorted.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo_FIL.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="experience.html"
+                        title="previous chapter">experience</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="test.html"
+                        title="next chapter">test</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/sorting.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="test.html" title="test"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="experience.html" title="experience"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Mon_projet 0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Simon Le Pallac &lt;AUTHOR&gt; Ryan Lefebvre, FIL - IEEA - Univ-lille1.
+      Last updated on 21/01/2016.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.
+    </div>
+  </body>
+</html>

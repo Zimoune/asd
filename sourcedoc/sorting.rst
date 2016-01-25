@@ -1,0 +1,6 @@
+-------
+sorting
+-------
+
+.. automodule:: sorting
+    :members:
