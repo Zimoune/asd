@@ -86,18 +86,26 @@ if __name__ == "__main__":
 
     print("Markers: %s" % (markers))
     print("Positive markers: %s" % (positive))
+
     
     # test stategy 1
     cpt = 0
     print("Negative markers: %s" % (negative_markers1(markers,positive)))
     print("Nb. comparisons: %d" % (cpt))
+    cpt_strat1 = cpt
 
     # test stategy 2
     cpt = 0
     print("Negative markers: %s" % (negative_markers2(markers,positive)))
     print("Nb. comparisons: %d" % (cpt))
-
+    cpt_strat2 = cpt
     # test stategy 3
     cpt = 0
     print("Negative markers: %s" % (negative_markers3(markers,positive)))
     print("Nb. comparisons: %d" % (cpt))
+    cpt_strat3 = cpt
+
+    data = open("gnup_tab.txt","wr")
+
+    for i in range(1, 11):
+        data.write(str(m)+' '+str(p)+' '+ str(
