@@ -55,7 +55,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-author = 'Simon Le Pallac <AUTHOR> Ryan Lefebvre'
+author = 'Simon Le Pallac && Ryan Lefebvre'
 project = 'Mon_projet'
 copyright = '2015, '+author+', FIL - IEEA - Univ-lille1'
 

@@ -14,9 +14,9 @@ Nous compterons les comparaisons entre deux éléments, fait par notre apelle a 
 Question 3 :
 ==============
 
-Le pire des cas est lorsque la liste des marqueurs positifs est de taille n-1 (n le nombres de marqueurs total).
+Pour n marqueurs et p positifs deja fixé, quelque soit le ca le resultat restera le meme.
 
 Question 4 :
 ===============
 
-c(m,p) = (m*(m+1))/2 pour p= m-1  (le pire des cas)
+c(m,p) = (m-p)*p + (p*(p+1))/2  (dans tout les cas)

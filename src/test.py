@@ -10,6 +10,7 @@
 
 import sys
 import experience
+import sorting
 
 global cpt
 
@@ -44,14 +45,30 @@ def negative_markers1(markers, positive):
         while i < len(positive) and compare_cpt(m, positive[i]) != 0:
             i += 1
         if i < len(positive):
-            negative += m
+            negative += [m]
         i = 0
     return negative
 
 
 # STRATEGY 2
 def negative_markers2(markers, positive):
+    positive_l = sorting.merge_sort(positive , compare_cpt)
     negative = []
+    for m in markers:
+        a = 0
+        b = len(positive)
+        find = False
+        while (not find) and a < b:
+            mid = (a+b)//2
+            comp = compare_cpt(m, positive[mid])
+            if comp == 0:
+                find = True
+            elif comp == 1:
+                a = mid +1
+            else:
+               b = mid -1
+        if find == False:
+            negative += [m]
     return negative
 
 
